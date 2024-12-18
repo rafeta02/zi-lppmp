@@ -12,6 +12,7 @@ use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
+use Alert;
 
 class ArticleTagController extends Controller
 {
@@ -69,6 +70,8 @@ class ArticleTagController extends Controller
     {
         $articleTag = ArticleTag::create($request->all());
 
+        Alert::success('Success', 'Article Tag created successfully.');
+
         return redirect()->route('admin.article-tags.index');
     }
 
@@ -82,6 +85,8 @@ class ArticleTagController extends Controller
     public function update(UpdateArticleTagRequest $request, ArticleTag $articleTag)
     {
         $articleTag->update($request->all());
+
+        Alert::success('Success', 'Article Tag updated successfully.');
 
         return redirect()->route('admin.article-tags.index');
     }
@@ -111,5 +116,33 @@ class ArticleTagController extends Controller
         }
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function searchSelect(Request $request)
+    {
+        $search = $request->get('q');
+        $results = ArticleTag::where('name', 'LIKE', '%' . $search . '%')->get();
+
+        // Transform data to the structure Select2 expects
+        $formattedResults = $results->map(function ($item) {
+            return [
+                'id' => $item->id,
+                'text' => $item->name,
+            ];
+        });
+
+        return response()->json($results);
+    }
+
+    public function storeSelect(Request $request)
+    {
+        $newOption = ArticleTag::create([
+            'name' => $request->input('text')
+        ]);
+
+        return response()->json([
+            'id' => $newOption->id,
+            'text' => $newOption->name
+        ]);
     }
 }

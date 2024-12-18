@@ -221,3 +221,11 @@ table.dataTable thead .sorting_desc {
 .daterangepicker {
     min-width: 575px;
 }
+
+.dropdown-toggle::after {
+    margin-left: 8px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0rem;
+}

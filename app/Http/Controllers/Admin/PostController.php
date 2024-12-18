@@ -64,16 +64,19 @@ class PostController extends Controller
             $table->editColumn('tag', function ($row) {
                 $labels = [];
                 foreach ($row->tags as $tag) {
-                    $labels[] = sprintf('<span class="label label-info label-many">%s</span>', $tag->name);
+                    $labels[] = sprintf('<span class="badge badge-info">%s</span>', $tag->name);
                 }
 
                 return implode(' ', $labels);
             });
             $table->editColumn('status', function ($row) {
-                return $row->status ? Post::STATUS_SELECT[$row->status] : '';
+                return $row->status == 'published' ? '<span class="badge badge-success">Published</span>' : '<span class="badge badge-primary">Draft</span>';
+            });
+            $table->editColumn('created_at', function ($row) {
+                return $row->created_at ? $row->created_at->diffForHumans() : '';
             });
 
-            $table->rawColumns(['actions', 'placeholder', 'category', 'tag']);
+            $table->rawColumns(['actions', 'placeholder', 'category', 'tag', 'status']);
 
             return $table->make(true);
         }

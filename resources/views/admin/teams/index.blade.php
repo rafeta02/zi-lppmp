@@ -92,12 +92,12 @@
     aaSorting: [],
     ajax: "{{ route('admin.teams.index') }}",
     columns: [
-      { data: 'placeholder', name: 'placeholder' },
-{ data: 'name', name: 'name' },
-{ data: 'position', name: 'position' },
-{ data: 'task', name: 'task' },
-{ data: 'email', name: 'email' },
-{ data: 'actions', name: '{{ trans('global.actions') }}' }
+        { data: 'placeholder', name: 'placeholder' },
+        { data: 'name', name: 'name', class: 'text-center' },
+        { data: 'position', name: 'position', class: 'text-center' },
+        { data: 'task', name: 'task', class: 'text-center'},
+        { data: 'email', name: 'email', class: 'text-center' },
+        { data: 'actions', name: '{{ trans('global.actions') }}', class: 'text-center' }
     ],
     orderCellsTop: true,
     order: [[ 1, 'desc' ]],

@@ -53,13 +53,13 @@ class AduanController extends Controller
                 return $row->hal ? Aduan::HAL_SELECT[$row->hal] : '';
             });
             $table->editColumn('title', function ($row) {
-                return $row->title ? $row->title : '';
+                return $row->title ? '<span class="badge badge-warning">Hal : '.$row->hal.'</span><br>' . $row->title : '';
             });
             $table->editColumn('description', function ($row) {
                 return $row->description ? $row->description : '';
             });
 
-            $table->rawColumns(['actions', 'placeholder']);
+            $table->rawColumns(['actions', 'placeholder', 'title']);
 
             return $table->make(true);
         }

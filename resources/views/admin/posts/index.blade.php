@@ -29,9 +29,6 @@
                         {{ trans('cruds.post.fields.title') }}
                     </th>
                     <th>
-                        {{ trans('cruds.post.fields.meta_title') }}
-                    </th>
-                    <th>
                         {{ trans('cruds.post.fields.category') }}
                     </th>
                     <th>
@@ -98,14 +95,13 @@
     aaSorting: [],
     ajax: "{{ route('admin.posts.index') }}",
     columns: [
-      { data: 'placeholder', name: 'placeholder' },
-{ data: 'title', name: 'title' },
-{ data: 'meta_title', name: 'meta_title' },
-{ data: 'category', name: 'categories.name' },
-{ data: 'tag', name: 'tags.name' },
-{ data: 'status', name: 'status' },
-{ data: 'created_at', name: 'created_at' },
-{ data: 'actions', name: '{{ trans('global.actions') }}' }
+        { data: 'placeholder', name: 'placeholder' },
+        { data: 'title', name: 'title', class : 'text-center'},
+        { data: 'category', name: 'categories.name', class : 'text-center' },
+        { data: 'tag', name: 'tags.name', class : 'text-center' },
+        { data: 'status', name: 'status', class : 'text-center' },
+        { data: 'created_at', name: 'created_at', class : 'text-center'  },
+        { data: 'actions', name: '{{ trans('global.actions') }}', class : 'text-center'}
     ],
     orderCellsTop: true,
     order: [[ 6, 'desc' ]],

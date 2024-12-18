@@ -32,12 +32,9 @@
                         {{ trans('cruds.aduan.fields.email') }}
                     </th>
                     <th>
-                        {{ trans('cruds.aduan.fields.hal') }}
-                    </th>
-                    <th>
                         {{ trans('cruds.aduan.fields.title') }}
                     </th>
-                    <th>
+                    <th width="40%">
                         {{ trans('cruds.aduan.fields.description') }}
                     </th>
                     <th>
@@ -55,7 +52,7 @@
 @section('scripts')
 @parent
 <script>
-    $(function () {
+$(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
 @can('aduan_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}';
@@ -95,13 +92,12 @@
     aaSorting: [],
     ajax: "{{ route('admin.aduans.index') }}",
     columns: [
-      { data: 'placeholder', name: 'placeholder' },
-{ data: 'name', name: 'name' },
-{ data: 'email', name: 'email' },
-{ data: 'hal', name: 'hal' },
-{ data: 'title', name: 'title' },
-{ data: 'description', name: 'description' },
-{ data: 'actions', name: '{{ trans('global.actions') }}' }
+        { data: 'placeholder', name: 'placeholder' },
+        { data: 'name', name: 'name', class: 'text-center' },
+        { data: 'email', name: 'email', class: 'text-center' },
+        { data: 'title', name: 'title', class: 'text-center' },
+        { data: 'description', name: 'description', class: 'text-center' },
+        { data: 'actions', name: '{{ trans('global.actions') }}', class: 'text-center' }
     ],
     orderCellsTop: true,
     order: [[ 1, 'desc' ]],
