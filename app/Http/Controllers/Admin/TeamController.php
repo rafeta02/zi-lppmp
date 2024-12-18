@@ -12,6 +12,7 @@ use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
+use Alert;
 
 class TeamController extends Controller
 {
@@ -75,6 +76,8 @@ class TeamController extends Controller
     {
         $team = Team::create($request->all());
 
+        Alert::success('Success', 'Team created successfully.');
+
         return redirect()->route('admin.teams.index');
     }
 
@@ -88,6 +91,8 @@ class TeamController extends Controller
     public function update(UpdateTeamRequest $request, Team $team)
     {
         $team->update($request->all());
+
+        Alert::success('Success', 'Team updated successfully.');
 
         return redirect()->route('admin.teams.index');
     }

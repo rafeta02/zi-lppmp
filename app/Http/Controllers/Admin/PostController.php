@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
+use Alert;
 
 class PostController extends Controller
 {
@@ -108,6 +109,8 @@ class PostController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $post->id]);
         }
 
+        Alert::success('Success', 'Post created successfully.');
+
         return redirect()->route('admin.posts.index');
     }
 
@@ -139,6 +142,8 @@ class PostController extends Controller
         } elseif ($post->image) {
             $post->image->delete();
         }
+
+        Alert::success('Success', 'Post updated successfully.');
 
         return redirect()->route('admin.posts.index');
     }

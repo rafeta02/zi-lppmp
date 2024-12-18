@@ -12,6 +12,7 @@ use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
+use Alert;
 
 class AduanController extends Controller
 {
@@ -78,6 +79,8 @@ class AduanController extends Controller
     {
         $aduan = Aduan::create($request->all());
 
+        Alert::success('Success', 'Aduan created successfully.');
+
         return redirect()->route('admin.aduans.index');
     }
 
@@ -91,6 +94,8 @@ class AduanController extends Controller
     public function update(UpdateAduanRequest $request, Aduan $aduan)
     {
         $aduan->update($request->all());
+
+        Alert::success('Success', 'Aduan updated successfully.');
 
         return redirect()->route('admin.aduans.index');
     }
