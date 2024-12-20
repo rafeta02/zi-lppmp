@@ -10,6 +10,9 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+
+    <!-- Example for Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Config -->
     <link type="text/css" rel="stylesheet" href="{{ asset('bringer/css/config.css') }}">
     <!-- Libraries -->
@@ -243,9 +246,9 @@
     <!-- JS Scripts -->
     <script src="{{ asset('bringer/js/lib/jquery.min.js') }}"></script>
     <script src="{{ asset('bringer/js/lib/libs.js') }}"></script>
-    <script src="{{ asset('bringer/js/contact_form.js') }}"></script>
     <script src="{{ asset('bringer/js/st-core.js') }}"></script>
     <script src="{{ asset('bringer/js/classes.js') }}"></script>
     <script src="{{ asset('bringer/js/main.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>

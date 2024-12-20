@@ -2,6 +2,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/pengaduan', 'HomeController@pengaduan')->name('pengaduan');
+Route::post('/pengaduan', 'HomeController@pengaduanStore')->name('pengaduan-store');
 
 Auth::routes(['register' => false]);
 
