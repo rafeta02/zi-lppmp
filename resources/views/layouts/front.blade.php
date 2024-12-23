@@ -51,59 +51,12 @@
                                     <a href="about-us.html">About Us</a>
                                 </li>
                                 <li>
-                                    <a href="about-me.html">About Me</a>
-                                </li>
-                                <li>
                                     <a href="team-member.html">Team Member</a>
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="#">Pages</a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="services.html">Our Services</a>
-                                </li>
-                                <li>
-                                    <a href="service-details.html">Service Details</a>
-                                </li>
-                                <li>
-                                    <a href="pricing.html">Pricing</a>
-                                </li>
-                                <li>
-                                    <a href="faq.html">F.A.Q.</a>
-                                </li>
-                                <li>
-                                    <a href="testimonials.html">Testimonials</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Portfolio</a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="portfolio-infinite-list.html">Infinite List</a>
-                                </li>
-                                <li>
-                                    <a href="portfolio-slider.html">Slider</a>
-                                </li>
-                                <li>
-                                    <a href="portfolio-column.html">Column Cards</a>
-                                </li>
-                                <li>
-                                    <a href="portfolio-grid.html">Classic Grid</a>
-                                </li>
-                                <li class="bringer-menu-divider"></li>
-                                <li>
-                                    <a href="portfolio-post01.html">Portfolio Details 01</a>
-                                </li>
-                                <li>
-                                    <a href="portfolio-post02.html">Portfolio Details 02</a>
-                                </li>
-                                <li>
-                                    <a href="portfolio-post03.html">Portfolio Details 03</a>
-                                </li>
-                            </ul>
+                        <li class="{{ request()->routeIs("home") ? "current-menu-item" : "" }}">
+                            <a href="{{ route('pengaduan') }}">News</a>
                         </li>
                         <li  class="{{ request()->routeIs("pengaduan") ? "current-menu-item" : "" }}">
                             <a href="{{ route('pengaduan') }}">Pengaduan</a>
@@ -113,7 +66,7 @@
             </div>
             <!-- Header Button -->
             <div class="bringer-header-rp">
-                <a href="contacts.html" class="bringer-button">Ajukan Pengaduan</a>
+                <a href="{{ route('pengaduan') }}" class="bringer-button">Ajukan Pengaduan</a>
             </div>
         </div>
         <!-- Mobile Header -->
@@ -141,12 +94,12 @@
             <div class="bringer-footer-widgets">
                 <div class="stg-container">
                     <div class="stg-row" data-stagger-appear="fade-left" data-stagger-delay="100">
-                        <div class="stg-col-5 stg-tp-col-12 stg-tp-bottom-gap-l">
+                        <div class="stg-col-6 stg-tp-col-12 stg-tp-bottom-gap-l">
                             <div class="bringer-info-widget">
                                 <a href="./" class="bringer-logo footer-logo">
-                                    <img src="{{ asset('bringer/img/logo.png') }}" alt="Zona Integritas | LPPMP UNS" width="124px" height="auto">
+                                    <img src="{{ asset('img/lppmp_uns.png') }}" alt="LPPMP UNS" width="210px" height="auto">
                                 </a>
-                                <div class="bringer-info-description">We are a passionate team of developers and designers who believe in the power of creativity. We help creative people create a strong online presence that shows their work and tells a story.</div>
+                                <div class="bringer-info-description" style="text-align:justify">Lembaga Pengembangan dan Penjaminan Mutu Pendidikan (LPPMP) Universitas Sebelas Maret (UNS) adalah lembaga yang bertugas meningkatkan mutu pendidikan di Universitas Sebelas Maret. Berfokus pada inovasi, pelatihan, dan penjaminan mutu, LPPMP berkomitmen mendukung visi UNS sebagai universitas berkelas dunia yang unggul dan berintegritas.</div>
                                 <span class="bringer-label">Follow us:</span>
                                 <ul class="bringer-socials-list" data-stagger-appear="fade-up" data-stagger-delay="75">
                                     <li>
@@ -177,45 +130,24 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="stg-col-2 stg-offset-1 stg-tp-col-4 stg-m-col-4">
+                        <div class="stg-col-6 stg-tp-col-12">
                             <div class="bringer-widget">
-                                <h6>Services</h6>
                                 <div class="bringer-menu-widget">
-                                    <ul>
-                                        <li><a href="service-details.html">Branding</a></li>
-                                        <li><a href="service-details.html">Marketing</a></li>
-                                        <li><a href="service-details.html">Graphic Design</a></li>
-                                        <li><a href="service-details.html">Web Design</a></li>
-                                        <li><a href="service-details.html">Content Creation</a></li>
-                                    </ul>
-                                </div>
-                            </div><!-- .bringer-widget -->
-                        </div>
-                        <div class="stg-col-2 stg-tp-col-4 stg-m-col-4">
-                            <div class="bringer-widget">
-                                <h6>About Us</h6>
-                                <div class="bringer-menu-widget">
-                                    <ul>
-                                        <li><a href="about-us.html">About Us</a></li>
-                                        <li><a href="about-me.html">About Me</a></li>
-                                        <li><a href="team-member.html">Our Team</a></li>
-                                        <li><a href="testimonials.html">Testimonials</a></li>
-                                        <li><a href="contacts.html">Get in Touch</a></li>
-                                    </ul>
-                                </div>
-                            </div><!-- .bringer-widget -->
-                        </div>
-                        <div class="stg-col-2 stg-tp-col-4 stg-m-col-4">
-                            <div class="bringer-widget">
-                                <h6>Resources</h6>
-                                <div class="bringer-menu-widget">
-                                    <ul>
-                                        <li><a href="pricing.html">Pricing</a></li>
-                                        <li><a href="faq.html">Help Center</a></li>
-                                        <li><a href="services.html">Our Services</a></li>
-                                        <li><a href="#">Terms of Use</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                    </ul>
+                                    <div class="stg-row">
+                                        <div class="stg-col-4 stg-tp-col-6 stg-m-bottom-gap" data-appear="fade-right" data-delay="100" data-unload="fade-left">
+                                            <!-- Phone -->
+                                            <div class="bringer-block stg-aspect-square stg-vertical-space-between">
+                                                <a href="https://maps.app.goo.gl/2DSo5P8VJLFafe577" class="bringer-grid-item-link"></a>
+                                                <div>
+                                                    <h5>Visit Us <span class="bringer-accent">:</span></h5>
+                                                    <p>Gedung Haris Mudjiman,<br>Ir. Sutami No.36A, Jebres, Kec. Jebres, Kota Surakarta, Jawa Tengah 57126</p> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="stg-col-8 stg-tp-col-6" data-appear="fade-left" data-delay="200" data-unload="fade-right">
+                                            <iframe class="bringer-google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.1172077818173!2d110.85344617455041!3d-7.562197974680359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a16fdaaaaaaab%3A0x82f53d0de080406d!2sLPPMP%20UNS!5e0!3m2!1sid!2sid!4v1734888677436!5m2!1sid!2sid" width="auto" height="360px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        </div>
+                                    </div>
                                 </div>
                             </div><!-- .bringer-widget -->
                         </div>
