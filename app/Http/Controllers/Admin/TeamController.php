@@ -4,19 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\CsvImportTrait;
+use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyTeamRequest;
 use App\Http\Requests\StoreTeamRequest;
 use App\Http\Requests\UpdateTeamRequest;
 use App\Models\Team;
 use Gate;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
-use Alert;
 
 class TeamController extends Controller
 {
-    use CsvImportTrait;
+    use MediaUploadingTrait, CsvImportTrait;
 
     public function index(Request $request)
     {
@@ -76,7 +77,13 @@ class TeamController extends Controller
     {
         $team = Team::create($request->all());
 
-        Alert::success('Success', 'Team created successfully.');
+        if ($request->input('image', false)) {
+            $team->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
+        }
+
+        if ($media = $request->input('ck-media', false)) {
+            Media::whereIn('id', $media)->update(['model_id' => $team->id]);
+        }
 
         return redirect()->route('admin.teams.index');
     }
@@ -92,7 +99,16 @@ class TeamController extends Controller
     {
         $team->update($request->all());
 
-        Alert::success('Success', 'Team updated successfully.');
+        if ($request->input('image', false)) {
+            if (! $team->image || $request->input('image') !== $team->image->file_name) {
+                if ($team->image) {
+                    $team->image->delete();
+                }
+                $team->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
+            }
+        } elseif ($team->image) {
+            $team->image->delete();
+        }
 
         return redirect()->route('admin.teams.index');
     }
@@ -122,5 +138,17 @@ class TeamController extends Controller
         }
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function storeCKEditorImages(Request $request)
+    {
+        abort_if(Gate::denies('team_create') && Gate::denies('team_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $model         = new Team();
+        $model->id     = $request->input('crud_id', 0);
+        $model->exists = true;
+        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
+
+        return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
 }

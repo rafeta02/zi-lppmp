@@ -45,7 +45,7 @@
                             <a href="{{ route('home') }}">Home</a>
                         </li>
                         <li>
-                            <a href="#">About Us</a>
+                            <a href="#news-section">About Us</a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="about-us.html">About Us</a>

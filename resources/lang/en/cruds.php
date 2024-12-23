@@ -1401,6 +1401,8 @@ return [
             'updated_at_helper'  => ' ',
             'deleted_at'         => 'Deleted at',
             'deleted_at_helper'  => ' ',
+            'image'              => 'Image',
+            'image_helper'       => ' ',
         ],
     ],
     'aduan' => [

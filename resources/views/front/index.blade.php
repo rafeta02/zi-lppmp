@@ -23,7 +23,7 @@
                 </div>
                 <!-- Content -->
                 <div class="bringer-masked-content at-bottom-right">
-                    <a href="#page01" class="bringer-square-button" data-appear="fade-left">
+                    <a href="#news-section" class="bringer-square-button" data-appear="fade-left">
                         <span class="bringer-icon bringer-icon-arrow-down"></span>
                     </a>
                 </div>
@@ -51,7 +51,7 @@
     </section>
 
     <!-- Section: News -->
-    <section class="backlight-top" id="page01">
+    <section class="backlight-top" id="news-section">
         <div class="stg-row stg-large-gap">
             <div class="stg-col-6 stg-tp-bottom-gap-l" data-unload="fade-left">
                 <div class="bringer-sticky-block">
@@ -77,51 +77,6 @@
                             <span class="bringer-icon bringer-icon-explore"></span>
                         </div>
                         <a href="portfolio-post01.html"></a>
-                    </div><!-- .bringer-portfolio-card -->
-                                                
-                    <!-- Card Item -->
-                    <div class="bringer-block bringer-portfolio-card">
-                        <div class="bringer-portfolio-card-image">
-                            <img class="bringer-lazy" src="{{ asset('bringer/img/null.png') }}" data-src="{{ asset('img/portfolio/portfolio01.jpg') }}" alt="" width="1200" height="1200">
-                        </div>
-                        <div class="bringer-portfolio-card-footer">
-                            <div class="bringer-portfolio-card-title">
-                                <span class="bringer-meta">Advertising</span>
-                                <h6>Cookie Dough</h6>
-                            </div>
-                            <span class="bringer-icon bringer-icon-explore"></span>
-                        </div>
-                        <a href="portfolio-post02.html"></a>
-                    </div><!-- .bringer-portfolio-card -->
-                                                
-                    <!-- Card Item -->
-                    <div class="bringer-block bringer-portfolio-card">
-                        <div class="bringer-portfolio-card-image">
-                            <img class="bringer-lazy" src="{{ asset('bringer/img/null.png') }}" data-src="{{ asset('img/portfolio/portfolio01.jpg') }}" alt="" width="1200" height="1200">
-                        </div>
-                        <div class="bringer-portfolio-card-footer">
-                            <div class="bringer-portfolio-card-title">
-                                <span class="bringer-meta">Marketing</span>
-                                <h6>Gaming Power</h6>
-                            </div>
-                            <span class="bringer-icon bringer-icon-explore"></span>
-                        </div>
-                        <a href="portfolio-post03.html"></a>
-                    </div><!-- .bringer-portfolio-card -->
-                                                
-                    <!-- Card Item -->
-                    <div class="bringer-block bringer-portfolio-card">
-                        <div class="bringer-portfolio-card-image">
-                            <img class="bringer-lazy" src="{{ asset('bringer/img/null.png') }}" data-src="{{ asset('img/portfolio/portfolio01.jpg') }}" alt="" width="1200" height="1200">
-                        </div>
-                        <div class="bringer-portfolio-card-footer">
-                            <div class="bringer-portfolio-card-title">
-                                <span class="bringer-meta">Advertising</span>
-                                <h6>Riot Energy</h6>
-                            </div>
-                            <span class="bringer-icon bringer-icon-explore"></span>
-                        </div>
-                        <a href="portfolio-post04.html"></a>
                     </div><!-- .bringer-portfolio-card -->
                 </div><!-- .bringer-grid -->
             </div>
@@ -266,81 +221,24 @@
         <div class="swiper bringer-carousel" data-appear="fade-up" data-delay="200" data-tp-centered="0"
             data-unload="fade-up">
             <div class="swiper-wrapper">
-                <!-- Carousel Item -->
-                <div class="bringer-block bringer-carousel-card swiper-slide">
-                    <div class="bringer-carousel-card-image">
-                        <img class="bringer-lazy" src="{{ asset('bringer/img/null.png') }}" data-src="{{ asset('bringer/img/team/team01-thmb.jpg') }}"
-                            alt="Elizabeth Riley" width="600" height="900">
-                    </div>
-                    <div class="bringer-carousel-card-footer">
-                        <div class="bringer-carousel-card-title">
-                            <span class="bringer-meta">CEO, Founder</span>
-                            <h6>Elizabeth Riley</h6>
+                @foreach ($teams as $team)
+                    <!-- Carousel Item -->
+                    <div class="bringer-block bringer-carousel-card swiper-slide">
+                        <div class="bringer-carousel-card-image">
+                            <img class="bringer-lazy" src="{{ asset('bringer/img/null.png') }}" data-src="{{ $team->image ? $team->image->getUrl() : asset('bringer/img/team/team01-thmb.jpg') }}"
+                                alt="{{$team->name}}" width="600" height="900">
                         </div>
-                        <span class="bringer-icon bringer-icon-explore"></span>
-                    </div>
-                    <a href="team-member.html"></a>
-                </div><!-- .bringer-carousel-card -->
-                <!-- Carousel Item -->
-                <div class="bringer-block bringer-carousel-card swiper-slide">
-                    <div class="bringer-carousel-card-image">
-                        <img class="bringer-lazy" src="{{ asset('bringer/img/null.png') }}" data-src="{{ asset('bringer/img/team/team01-thmb.jpg') }}"
-                            alt="John Belrose" width="600" height="900">
-                    </div>
-                    <div class="bringer-carousel-card-footer">
-                        <div class="bringer-carousel-card-title">
-                            <span class="bringer-meta">Concept Artist</span>
-                            <h6>John Belrose</h6>
+                        <div class="bringer-carousel-card-footer">
+                            <div class="bringer-carousel-card-title">
+                                <span class="bringer-meta">{{$team->position}}</span>
+                                <h6>{{$team->name}}</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pharetra, metus eget tincidunt tristique, erat nulla sollicitudin dolor, vel lobortis mi erat quis lorem. Aenean aliquet pulvinar arcu et viverra. Phasellus ac imperdiet arcu. Donec ut ante dui. Sed mattis varius odio vitae gravida. Donec dignissim ante enim, eget tristique enim sodales sed. Donec varius, nulla eget congue sodales, dui nisi cursus urna, eu scelerisque quam erat facilisis diam. Sed sit amet ex nec purus luctus commodo. Praesent suscipit turpis nec dapibus cursus.</p>
+                            </div>
+                            <span class="bringer-icon bringer-icon-explore"></span>
                         </div>
-                        <span class="bringer-icon bringer-icon-explore"></span>
-                    </div>
-                    <a href="team-member.html"></a>
-                </div><!-- .bringer-carousel-card -->
-                <!-- Carousel Item -->
-                <div class="bringer-block bringer-carousel-card swiper-slide">
-                    <div class="bringer-carousel-card-image">
-                        <img class="bringer-lazy" src="{{ asset('bringer/img/null.png') }}" data-src="{{ asset('bringer/img/team/team01-thmb.jpg') }}"
-                            alt="Sonya Altena" width="600" height="900">
-                    </div>
-                    <div class="bringer-carousel-card-footer">
-                        <div class="bringer-carousel-card-title">
-                            <span class="bringer-meta">Client Manager</span>
-                            <h6>Sonya Altena</h6>
-                        </div>
-                        <span class="bringer-icon bringer-icon-explore"></span>
-                    </div>
-                    <a href="team-member.html"></a>
-                </div><!-- .bringer-carousel-card -->
-                <!-- Carousel Item -->
-                <div class="bringer-block bringer-carousel-card swiper-slide">
-                    <div class="bringer-carousel-card-image">
-                        <img class="bringer-lazy" src="{{ asset('bringer/img/null.png') }}" data-src="{{ asset('bringer/img/team/team01-thmb.jpg') }}"
-                            alt="Nikolas Rome" width="600" height="900">
-                    </div>
-                    <div class="bringer-carousel-card-footer">
-                        <div class="bringer-carousel-card-title">
-                            <span class="bringer-meta">Developer</span>
-                            <h6>Nikolas Rome</h6>
-                        </div>
-                        <span class="bringer-icon bringer-icon-explore"></span>
-                    </div>
-                    <a href="team-member.html"></a>
-                </div><!-- .bringer-carousel-card -->
-                <!-- Carousel Item -->
-                <div class="bringer-block bringer-carousel-card swiper-slide">
-                    <div class="bringer-carousel-card-image">
-                        <img class="bringer-lazy" src="{{ asset('bringer/img/null.png') }}" data-src="{{ asset('bringer/img/team/team01-thmb.jpg') }}"
-                            alt="Candy Tittensor" width="600" height="900">
-                    </div>
-                    <div class="bringer-carousel-card-footer">
-                        <div class="bringer-carousel-card-title">
-                            <span class="bringer-meta">Design Artist</span>
-                            <h6>Candy Tittensor</h6>
-                        </div>
-                        <span class="bringer-icon bringer-icon-explore"></span>
-                    </div>
-                    <a href="team-member.html"></a>
-                </div><!-- .bringer-carousel-card -->
+                    </div><!-- .bringer-carousel-card -->
+                    <!-- Carousel Item -->
+                @endforeach
             </div>
             <!-- Pagination -->
             <div class="swiper-pagination bringer-dots"></div>

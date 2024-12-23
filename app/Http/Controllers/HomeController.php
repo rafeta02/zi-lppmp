@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Validator;
 use SEOMeta;
 use Alert;
 use App\Models\Aduan;
+use App\Models\Team;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
@@ -27,7 +29,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('front.index');
+        $news = Post::where('status', 'published')->latest()->take(5);
+        $teams = Team::where('key', 'anggota')->get();
+
+        return view('front.index', compact('teams', 'news'));
     }
 
     public function pengaduan()

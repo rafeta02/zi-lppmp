@@ -71,6 +71,18 @@
                             {{ App\Models\Team::KEY_SELECT[$team->key] ?? '' }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.team.fields.image') }}
+                        </th>
+                        <td>
+                            @if($team->image)
+                                <a href="{{ $team->image->getUrl() }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ $team->image->getUrl('thumb') }}">
+                                </a>
+                            @endif
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

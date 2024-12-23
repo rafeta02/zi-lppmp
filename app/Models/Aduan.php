@@ -21,8 +21,8 @@ class Aduan extends Model
     ];
 
     public const HAL_SELECT = [
-        'Pelayanan' => 'Pelayanan',
-        'Pengaduan' => 'Pengaduan',
+        'pelayanan' => 'Pelayanan',
+        'pengaduan' => 'Pengaduan',
     ];
 
     protected $fillable = [

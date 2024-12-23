@@ -134,6 +134,18 @@
                         </a>
                     </li>
                 @endcan
+                @can('team_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.teams.index") }}" class="nav-link {{ request()->is("admin/teams") || request()->is("admin/teams/*") ? "active" : "" }}">
+                            <i class="fa-fw nav-icon fab fa-teamspeak">
+
+                            </i>
+                            <p>
+                                {{ trans('cruds.team.title') }}
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 @can('aduan_access')
                     <li class="nav-item">
                         <a href="{{ route("admin.aduans.index") }}" class="nav-link {{ request()->is("admin/aduans") || request()->is("admin/aduans/*") ? "active" : "" }}">
