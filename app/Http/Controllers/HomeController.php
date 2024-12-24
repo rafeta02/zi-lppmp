@@ -29,7 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $news = Post::where('status', 'published')->latest()->take(5);
+        $news = Post::where('status', 'published')->latest()->take(5)->get();
         $teams = Team::where('key', 'anggota')->get();
 
         return view('front.index', compact('teams', 'news'));

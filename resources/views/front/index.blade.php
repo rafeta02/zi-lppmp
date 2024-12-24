@@ -64,20 +64,23 @@
             </div>
             <div class="stg-col-6">
                 <div class="bringer-grid-1col bringer-tp-grid-2cols stg-normal-gap bringer-parallax-media" data-stagger-appear="fade-left" data-stagger-unload="fade-right" data-threshold="0.25" data-stagger-delay="100">
-                    <!-- Card Item -->
-                    <div class="bringer-block bringer-portfolio-card">
-                        <div class="bringer-portfolio-card-image">
-                            <img class="bringer-lazy" src="{{ asset('bringer/img/null.png') }}" data-src="{{ asset('img/portfolio/portfolio01.jpg') }}" alt="" width="1200" height="1200">
-                        </div>
-                        <div class="bringer-portfolio-card-footer">
-                            <div class="bringer-portfolio-card-title">
-                                <span class="bringer-meta">Branding</span>
-                                <h6>Curology</h6>
+                    @foreach ($news as $item)
+                        <!-- Card Item -->
+                        <div class="bringer-block bringer-portfolio-card">
+                            <div class="bringer-portfolio-card-image">
+                                <img class="bringer-lazy" src="{{ asset('bringer/img/null.png') }}" data-src="{{ $item->image ? $item->image->getUrl() : asset('bringer/img/portfolio/portfolio01.jpg') }}" alt="" width="1200" height="1200">
                             </div>
-                            <span class="bringer-icon bringer-icon-explore"></span>
-                        </div>
-                        <a href="portfolio-post01.html"></a>
-                    </div><!-- .bringer-portfolio-card -->
+                            <div class="bringer-portfolio-card-footer">
+                                <div class="bringer-portfolio-card-title">
+                                    <span class="bringer-meta">{{ $item->categories->first()->name }}</span>
+                                    <h6>{{ $item->title }}</h6>
+                                    <p>{{ $item->excerpt }}</p>
+                                </div>
+                                <span class="bringer-icon bringer-icon-explore"></span>
+                            </div>
+                            <a href="portfolio-post01.html"></a>
+                        </div><!-- .bringer-portfolio-card -->
+                    @endforeach
                 </div><!-- .bringer-grid -->
             </div>
         </div>
