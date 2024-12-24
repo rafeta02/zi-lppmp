@@ -35,6 +35,40 @@ class HomeController extends Controller
         return view('front.index', compact('teams', 'news'));
     }
 
+    public function news()
+    {
+        $news = Post::where('status', 'published')->latest()->take(5)->get();
+
+        return view('front.index', compact('news'));
+    }
+
+    public function blogDetail($slug)
+    {
+        $post = Post::where('slug', $slug)->firstOrFail();
+        if ($post->categories->contains('slug', 'alumni-caring')) {
+            return redirect()->route('alumni-caring-detail', $slug);
+        }
+
+        $tags = $post->tags->pluck('name')->toArray(); // Get tags as an array of names
+        $tagsString = implode(', ', $tags);
+
+        // Set SEO meta tags
+        SEOMeta::setTitle($post->title);
+        SEOMeta::setDescription($post->excerpt);
+        SEOMeta::setKeywords($tags); // Set tags as keywords
+        SEOMeta::setCanonical(url()->current());
+
+        $relatedPosts = Post::whereHas('categories', function ($query) use ($post) {
+                            $query->whereIn('id', $post->categories->pluck('id')); // Same categories
+                        })
+                        ->where('posts.id', '!=', $post->id) // Exclude the current post
+                        ->orderByRaw('ABS(TIMESTAMPDIFF(SECOND, posts.created_at, ?))', [$post->created_at]) // Order by nearest creation time
+                        ->take(3) // Limit the number of related posts
+                        ->get();
+
+        return view('front.berita_detail', compact('post', 'relatedPosts'));
+    }
+
     public function pengaduan()
     {
         return view('front.aduan');

@@ -4,6 +4,12 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/pengaduan', 'HomeController@pengaduan')->name('pengaduan');
 Route::post('/pengaduan', 'HomeController@pengaduanStore')->name('pengaduan-store');
 
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/team/{slug}', 'HomeController@teamDetail')->name('team-detail');
+Route::get('/news', 'HomeController@news')->name('news');
+Route::get('/articles/{slug}', 'HomeController@blogDetail')->name('blog-detail');
+
+
 Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {

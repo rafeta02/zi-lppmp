@@ -78,7 +78,7 @@
                                 </div>
                                 <span class="bringer-icon bringer-icon-explore"></span>
                             </div>
-                            <a href="portfolio-post01.html"></a>
+                            <a href="{{route('blog-detail', $item->slug)}}"></a>
                         </div><!-- .bringer-portfolio-card -->
                     @endforeach
                 </div><!-- .bringer-grid -->
