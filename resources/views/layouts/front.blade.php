@@ -44,19 +44,11 @@
                         <li class="{{ request()->routeIs("home") ? "current-menu-item" : "" }}">
                             <a href="{{ route('home') }}">Home</a>
                         </li>
-                        <li>
-                            <a href="#news-section">About Us</a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="about-us.html">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="team-member.html">Team Member</a>
-                                </li>
-                            </ul>
+                        <li class="{{ request()->routeIs("about") ? "current-menu-item" : "" }} {{ request()->is("team*") ? "menu-open" : "" }}">
+                            <a href="{{ route('about') }}">About</a>
                         </li>
-                        <li class="{{ request()->routeIs("home") ? "current-menu-item" : "" }}">
-                            <a href="{{ route('pengaduan') }}">News</a>
+                        <li class="{{ request()->routeIs("news") ? "current-menu-item" : "" }} {{ request()->is("articles*") ? "menu-open" : "" }}">
+                            <a href="{{ route('news') }}">News</a>
                         </li>
                         <li  class="{{ request()->routeIs("pengaduan") ? "current-menu-item" : "" }}">
                             <a href="{{ route('pengaduan') }}">Pengaduan</a>

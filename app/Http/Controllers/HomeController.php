@@ -39,7 +39,7 @@ class HomeController extends Controller
     {
         $news = Post::where('status', 'published')->latest()->take(5)->get();
 
-        return view('front.index', compact('news'));
+        return view('front.berita', compact('news'));
     }
 
     public function blogDetail($slug)
