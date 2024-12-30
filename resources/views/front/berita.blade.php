@@ -44,10 +44,10 @@
                         <li class="{{ request()->routeIs("home") ? "current-menu-item" : "" }}">
                             <a href="{{ route('home') }}">Home</a>
                         </li>
-                        <li class="{{ request()->routeIs("about") ? "current-menu-item" : "" }} {{ request()->is("team*") ? "menu-open" : "" }}">
+                        {{-- <li class="{{ request()->routeIs("about") ? "current-menu-item" : "" }} {{ request()->is("team*") ? "current-menu-item" : "" }}">
                             <a href="{{ route('about') }}">About</a>
-                        </li>
-                        <li class="{{ request()->routeIs("news") ? "current-menu-item" : "" }} {{ request()->is("articles*") ? "menu-open" : "" }}">
+                        </li> --}}
+                        <li class="{{ request()->routeIs("news") ? "current-menu-item" : "" }} {{ request()->is("articles/*") ? "current-menu-item" : "" }}">
                             <a href="{{ route('news') }}">News</a>
                         </li>
                         <li  class="{{ request()->routeIs("pengaduan") ? "current-menu-item" : "" }}">
@@ -92,7 +92,7 @@
                                     <span class="bringer-meta">{{ $item->categories->first()->name }} ({{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }})</span>
                                     <h4>{{ $item->title }}</h4>
                                 </div>
-                                <a href="portfolio-post01.html"></a>
+                                <a href="{{route('blog-detail', $item->slug)}}"></a>
                             </div>
                         </div> 
                     @endforeach

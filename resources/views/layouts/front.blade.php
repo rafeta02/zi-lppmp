@@ -44,10 +44,10 @@
                         <li class="{{ request()->routeIs("home") ? "current-menu-item" : "" }}">
                             <a href="{{ route('home') }}">Home</a>
                         </li>
-                        <li class="{{ request()->routeIs("about") ? "current-menu-item" : "" }} {{ request()->is("team*") ? "menu-open" : "" }}">
+                        {{-- <li class="{{ request()->routeIs("about") ? "current-menu-item" : "" }} {{ request()->is("team*") ? "current-menu-item" : "" }}">
                             <a href="{{ route('about') }}">About</a>
-                        </li>
-                        <li class="{{ request()->routeIs("news") ? "current-menu-item" : "" }} {{ request()->is("articles*") ? "menu-open" : "" }}">
+                        </li> --}}
+                        <li class="{{ request()->routeIs("news") ? "current-menu-item" : "" }} {{ request()->is("articles*") ? "current-menu-item" : "" }}">
                             <a href="{{ route('news') }}">News</a>
                         </li>
                         <li  class="{{ request()->routeIs("pengaduan") ? "current-menu-item" : "" }}">
@@ -95,12 +95,12 @@
                                 <span class="bringer-label">Follow us:</span>
                                 <ul class="bringer-socials-list" data-stagger-appear="fade-up" data-stagger-delay="75">
                                     <li>
-                                        <a href="https://www.facebook.com/" target="_blank" class="bringer-socials-facebook">
+                                        <a href="https://www.facebook.com/pages/Lppmp%20Uns/271307096582414" target="_blank" class="bringer-socials-facebook">
                                             <i></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank" class="bringer-socials-instagram">
+                                        <a href="https://www.instagram.com/lppmpuns/" target="_blank" class="bringer-socials-instagram">
                                             <i></i>
                                         </a>
                                     </li>
@@ -111,11 +111,6 @@
                                     </li>
                                     <li>
                                         <a href="#" target="_blank" class="bringer-socials-tiktok">
-                                            <i></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank" class="bringer-socials-patreon">
                                             <i></i>
                                         </a>
                                     </li>

@@ -19,7 +19,7 @@
             <div class="bringer-hero-media-wrap bringer-masked-bottom-right bringer-masked-block stg-bottom-gap-l" data-appear="zoom-out" data-unload="zoom-out">
                 <!-- Masked Media -->
                 <div class="bringer-masked-media bringer-masked-media bringer-parallax-media">
-                    <img src="{{ asset('bringer/img/home/home01-hero.jpg') }}" alt="Unleash Your Creativity">
+                    <img src="{{ asset('img/jumbotron.png') }}" alt="Pakta Integritas">
                 </div>
                 <!-- Content -->
                 <div class="bringer-masked-content at-bottom-right">
@@ -197,22 +197,17 @@
                     </div>
                     <ul class="bringer-socials-list" data-stagger-appear="fade-up">
                         <li>
-                            <a href="#" class="bringer-socials-facebook">
+                            <a href="https://www.instagram.com/sarwantoworoworo/" class="bringer-socials-instagram">
+                                <i></i>
+                            </a>
+                        </li>
+                        <li> 
+                            <a href="https://scholar.google.co.id/citations?user=wv6D77MAAAAJ&hl=id" class="bringer-socials-dribbble">
                                 <i></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="bringer-socials-instagram">
-                                <i></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="bringer-socials-behance">
-                                <i></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="bringer-socials-dribbble">
+                            <a href="https://id.linkedin.com/in/sarwanto-sarwanto-a4241a16a" class="bringer-socials-linkedin">
                                 <i></i>
                             </a>
                         </li>
@@ -235,7 +230,7 @@
                             <div class="bringer-carousel-card-title">
                                 <span class="bringer-meta">{{$team->position}}</span>
                                 <h6>{{$team->name}}</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pharetra, metus eget tincidunt tristique, erat nulla sollicitudin dolor, vel lobortis mi erat quis lorem. Aenean aliquet pulvinar arcu et viverra. Phasellus ac imperdiet arcu. Donec ut ante dui. Sed mattis varius odio vitae gravida. Donec dignissim ante enim, eget tristique enim sodales sed. Donec varius, nulla eget congue sodales, dui nisi cursus urna, eu scelerisque quam erat facilisis diam. Sed sit amet ex nec purus luctus commodo. Praesent suscipit turpis nec dapibus cursus.</p>
+                                <p>{{$team->description}}</p>
                             </div>
                             <span class="bringer-icon bringer-icon-explore"></span>
                         </div>
