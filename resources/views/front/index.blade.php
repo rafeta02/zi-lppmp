@@ -19,7 +19,7 @@
             <div class="bringer-hero-media-wrap bringer-masked-bottom-right bringer-masked-block stg-bottom-gap-l" data-appear="zoom-out" data-unload="zoom-out">
                 <!-- Masked Media -->
                 <div class="bringer-masked-media bringer-masked-media bringer-parallax-media">
-                    <img src="{{ asset('img/jumbotron.png') }}" alt="Pakta Integritas">
+                    <img src="{{ asset('img/jumbotron_2.png') }}" alt="Pakta Integritas">
                 </div>
                 <!-- Content -->
                 <div class="bringer-masked-content at-bottom-right">

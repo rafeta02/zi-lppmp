@@ -50,8 +50,27 @@
                         <li class="{{ request()->routeIs("news") ? "current-menu-item" : "" }} {{ request()->is("articles*") ? "current-menu-item" : "" }}">
                             <a href="{{ route('news') }}">News</a>
                         </li>
-                        <li  class="{{ request()->routeIs("pengaduan") ? "current-menu-item" : "" }}">
-                            <a href="{{ route('pengaduan') }}">Pengaduan</a>
+                        <li class="{{ request()->routeIs("sop-pelayanan") ? "current-menu-parent" : "" }} {{ request()->routeIs("sop-pendidikan") ? "current-menu-parent" : "" }}">
+                            <a href="#">S O P</a>
+                            <ul class="sub-menu">
+                                <li class="{{ request()->routeIs("sop-pelayanan") ? "current-menu-item" : "" }}">
+                                    <a href="{{route('sop-pelayanan')}}">Pelayanan</a>
+                                </li>
+                                <li class="{{ request()->routeIs("sop-pendidikan") ? "current-menu-item" : "" }}">
+                                    <a href="{{route('sop-pendidikan')}}">Pendidikan</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="{{ request()->routeIs("pengaduan") ? "current-menu-parent" : "" }} {{ request()->routeIs("wbs-status") ? "current-menu-parent" : "" }}">
+                            <a href="#">Layanan Pengaduan</a>
+                            <ul class="sub-menu">
+                                <li class="{{ (request()->routeIs("pengaduan") && request()->query('form') == 'pengaduan') || (request()->routeIs("pengaduan") && !request()->has('form')) ? "current-menu-item" : "" }}">
+                                    <a href="{{ route('pengaduan', ['form' => 'pengaduan']) }}">Form Pengaduan</a>
+                                </li>
+                                <li class="{{ (request()->routeIs("pengaduan") && request()->query('form') == 'wbs') ? "current-menu-item" : "" }}">
+                                    <a href="{{ route('pengaduan', ['form' => 'wbs']) }}">Whistle Blowing System</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </nav>

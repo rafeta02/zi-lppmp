@@ -101,4 +101,14 @@ class HomeController extends Controller
          
         return redirect()->route('pengaduan');
     }
+
+    public function sopPelayanan()
+    {
+        return view('front.sop_layanan');
+    }
+
+    public function sopPendidikan()
+    {
+        return view('front.sop_pendidikan');
+    }
 }

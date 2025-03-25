@@ -8,6 +8,13 @@ Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/team/{slug}', 'HomeController@teamDetail')->name('team-detail');
 Route::get('/news', 'HomeController@news')->name('news');
 Route::get('/articles/{slug}', 'HomeController@blogDetail')->name('blog-detail');
+Route::get('/sop/pelayanan', 'HomeController@sopPelayanan')->name('sop-pelayanan');
+Route::get('/sop/pendidikan', 'HomeController@sopPendidikan')->name('sop-pendidikan');
+
+// WBS routes
+Route::post('/whistle-blowing-system', 'WhistleBlowingController@store')->name('wbs-store');
+Route::get('/whistle-blowing-system/status', 'WhistleBlowingController@checkStatus')->name('wbs-status');
+
 
 
 Auth::routes(['register' => false]);
